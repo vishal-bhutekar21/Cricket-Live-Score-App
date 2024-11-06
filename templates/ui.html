@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Cricket Matches</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Live Cricket Matches</h1>
+    
+    <div class="matches">
+        <!-- Loop through the matches passed from Flask -->
+        {% for match in matches %}
+            <div class="match-card">
+                <div class="card-body">
+                    <h2 class="match-title">{{ match.name }}</h2>
+                    <p class="match-status"><strong>Status:</strong> <span>{{ match.status }}</span></p>
+                    <p class="match-venue"><strong>Venue:</strong> <span>{{ match.venue }}</span></p>
+                    <p class="match-score"><strong>Score:</strong> <span class="score-highlight">{{ match.score }}</span></p>
+
+                    <!-- Teams Info -->
+                    <div class="teams">
+                        <div class="team">
+                            <img src="{{ match.team_1_img }}" alt="{{ match.team_1 }}" class="team-logo">
+                            <p>{{ match.team_1 }}</p>
+                        </div>
+                        <div class="team">
+                            <img src="{{ match.team_2_img }}" alt="{{ match.team_2 }}" class="team-logo">
+                            <p>{{ match.team_2 }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+</body>
+</html>
