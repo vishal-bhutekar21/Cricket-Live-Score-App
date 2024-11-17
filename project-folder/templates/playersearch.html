@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  <title>Player Search</title>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="nav-btn">Home</a>
+            <a href="/series" class="nav-btn">Series List</a>
+            <a href="/player-search" class="nav-btn">Player Search</a>
+            <a href="/player-list" class="nav-btn">Player List</a>
+        </div>
+    </nav>
+
+  <h1>Search for Players</h1>
+
+  <form method="POST" action="{{ url_for('player_search') }}">
+    <input type="text" name="query" placeholder="Enter player name" required>
+    <button type="submit">Search</button>
+  </form>
+
+  <h2>Player Results</h2>
+  {% if players %}
+    <ul>
+      {% for player in players %}
+        <li>
+          <strong>{{ player['name'] }}</strong> - {{ player['bio'] }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No players found. Try a different search query.</p>
+  {% endif %}
+</body>
+</html>

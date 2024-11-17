@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylerforplayerlist.css') }}"> <!-- Ensure this is correct -->
+</head>
+<body>
+
+<!-- Navigation Bar with Buttons -->
+<nav>
+    <div class="nav-container">
+        <a href="/" class="nav-btn">Home</a>
+        <a href="/series" class="nav-btn">Series List</a>
+        <a href="/player-search" class="nav-btn">Player Search</a>
+        <a href="/player-list" class="nav-btn">Player List</a>
+    </div>
+</nav>
+
+<!-- Player List Section -->
+<div class="container">
+    <h1>Player List</h1>
+    <div class="player-list">
+        {% if players %}
+            {% for player in players %}
+                <div class="player-card"> <!-- Card for each player -->
+                    <div class="card-body">
+                        <h3 class="player-name">{{ player.name }}</h3>
+                        <p class="player-country">Country: {{ player.country }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No players found.</p>
+        {% endif %}
+    </div>
+</div>
+
+</body>
+</html>

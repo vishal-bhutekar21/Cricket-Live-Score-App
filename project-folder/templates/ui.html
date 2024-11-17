@@ -4,10 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Live Cricket Matches</title>
-    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 </head>
 <body>
 
+<!-- Navigation Bar with Buttons -->
+<nav>
+    <div class="nav-container">
+        <a href="/" class="nav-btn">Home</a>
+        <a href="/series" class="nav-btn">Series List</a>
+        <a href="/player-search" class="nav-btn">Player Search</a>
+        <a href="/player-list" class="nav-btn">Player List</a>
+    </div>
+</nav>
+
+<!-- Main Content Section -->
 <div class="container">
     <h1>Live Cricket Matches</h1>
     
